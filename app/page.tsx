@@ -151,7 +151,6 @@ const COPY: Record<Lang, Copy> = {
       'Ejecución consistente en todas las sedes.',
       '“¿Quién lo atiende?” Asignado. En progreso. Evidencia adjunta.',
     ],
-
     problem_title: 'Las hojas de cálculo no son operaciones.',
     problem_points: [
       'Sucursales inconsistentes. Datos tardíos. Decisiones lentas.',
@@ -195,7 +194,6 @@ const COPY: Record<Lang, Copy> = {
     ],
     offer_cta_demo: 'Agenda una demo',
     offer_cta_waitlist: 'Únete a la lista',
-
     faq_title: 'Preguntas frecuentes',
     faqs: [
       { q: '¿Quién es dueño de mis datos?', a: 'Tú. Nos conectamos a tus sistemas y todo es exportable cuando quieras.' },
@@ -203,7 +201,6 @@ const COPY: Record<Lang, Copy> = {
       { q: '¿Soportan equipos EN/ES?', a: 'Sí. Dashboards y flujos bilingües desde el día uno.' },
       { q: '¿Y la seguridad?', a: 'Prácticas modernas en la nube y accesos por rol y ubicación.' },
     ],
-
     final_close: '¿Vas a seguir perdiendo tiempo en hojas de cálculo… o por fin operar en tiempo real?',
     final_cta: 'Ver demo en vivo',
     location: 'Miami • South Florida',
@@ -221,14 +218,14 @@ export default function Page() {
       {/* HEADER */}
       <header className="container mx-auto max-w-6xl px-4 pt-6">
         <div className="flex items-center justify-between gap-3">
-          {/* Left: Logo (slightly smaller on portrait) */}
+          {/* Left: Logo (bigger) */}
           <div className="flex items-center gap-2">
             <Image
               src="/logo.png"
               alt="Shorago AI"
-              width={140}
-              height={40}
-              className="h-8 w-auto sm:h-9 md:h-10"
+              width={240}
+              height={80}
+              className="h-12 w-auto sm:h-14 md:h-16"
               priority
             />
           </div>
