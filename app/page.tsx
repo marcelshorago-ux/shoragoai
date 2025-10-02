@@ -1,15 +1,53 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 
-// ---- Replace these with your real links ----
+// Replace with your real links
 const calendly = 'https://calendly.com/<your-handle>/30min';
-const waitlist  = 'https://<your-waitlist-form-url>';
-// --------------------------------------------
+const waitlist = 'https://<your-waitlist-form-url>';
 
 type Lang = 'en' | 'es';
+type FAQ = { q: string; a: string };
 
-const COPY: Record<Lang, any> = {
+interface Copy {
+  nav_demo: string;
+  nav_waitlist: string;
+  pill: string;
+  hero_h1: string;
+  hero_sub: string;
+  hero_demo: string;
+  hero_waitlist: string;
+  before_after_title: string;
+  before_label: string;
+  after_label: string;
+  before_points: string[];
+  after_points: string[];
+  problem_title: string;
+  problem_points: string[];
+  problem_card: string;
+  solution_title: string;
+  custom_examples_title: string;
+  custom_examples: string[];
+  solution_cta: string;
+  features_title: string;
+  features_points: string[];
+  proof_title: string;
+  proof_points: string[];
+  offer_title: string;
+  offer_copy: string;
+  offer_points: string[];
+  offer_cta_demo: string;
+  offer_cta_waitlist: string;
+  faq_title: string;
+  faqs: FAQ[];
+  final_close: string;
+  final_cta: string;
+  location: string;
+  lang_toggle: string;
+}
+
+const COPY: Record<Lang, Copy> = {
   en: {
     nav_demo: 'Book a Demo',
     nav_waitlist: 'Join Waitlist',
@@ -21,11 +59,11 @@ const COPY: Record<Lang, any> = {
 
     before_after_title: 'Before vs After',
     before_label: 'BEFORE',
-    after_label:  'AFTER',
+    after_label: 'AFTER',
     before_points: [
       'Weekly Excel recaps. Firefighting.',
       'Inconsistent guest/client experience.',
-      '“Who’s on it?” No idea.',
+      "“Who’s on it?” No idea.",
     ],
     after_points: [
       'Live KPIs with owners and due dates.',
@@ -39,8 +77,7 @@ const COPY: Record<Lang, any> = {
       'Managers report the news instead of fixing problems.',
       'No single source of truth. No accountability.',
     ],
-    problem_card:
-      'We replace weekly recap chaos with live visibility and clear ownership.',
+    problem_card: 'We replace weekly recap chaos with live visibility and clear ownership.',
 
     solution_title: 'Real-Time Ops + Custom AI Tools.',
     custom_examples_title: 'Custom AI Examples',
@@ -69,8 +106,7 @@ const COPY: Record<Lang, any> = {
     ],
 
     offer_title: 'Simple Pricing to Start',
-    offer_copy:
-      'Stage 1 → $1,200/month (12-month). A fraction of the cost of a full-time ops analyst.',
+    offer_copy: 'Stage 1 → $1,200/month (12-month). A fraction of the cost of a full-time ops analyst.',
     offer_points: [
       'Live dashboard + alerts',
       'Custom AI tools for your workflows',
@@ -104,7 +140,7 @@ const COPY: Record<Lang, any> = {
 
     before_after_title: 'Antes vs Después',
     before_label: 'ANTES',
-    after_label:  'DESPUÉS',
+    after_label: 'DESPUÉS',
     before_points: [
       'Recaps semanales en Excel. Apagar incendios.',
       'Experiencia del cliente inconsistente.',
@@ -122,8 +158,7 @@ const COPY: Record<Lang, any> = {
       'Los mandos reportan, no resuelven.',
       'Sin una sola fuente de verdad. Sin responsables.',
     ],
-    problem_card:
-      'Reemplazamos el caos de recaps con visibilidad en vivo y responsables claros.',
+    problem_card: 'Reemplazamos el caos de recaps con visibilidad en vivo y responsables claros.',
 
     solution_title: 'Operación en tiempo real + IA a la medida.',
     custom_examples_title: 'Ejemplos de IA a medida',
@@ -152,8 +187,7 @@ const COPY: Record<Lang, any> = {
     ],
 
     offer_title: 'Precio simple para empezar',
-    offer_copy:
-      'Etapa 1 → $1,200/mes (12 meses). Una fracción del costo de un analista de operaciones.',
+    offer_copy: 'Etapa 1 → $1,200/mes (12 meses). Una fracción del costo de un analista de operaciones.',
     offer_points: [
       'Tablero en vivo + alertas',
       'Herramientas de IA a la medida',
@@ -187,9 +221,16 @@ export default function Page() {
       {/* HEADER */}
       <header className="container mx-auto max-w-6xl px-4 pt-6">
         <div className="flex items-center justify-between gap-3">
-          {/* Left: Logo */}
+          {/* Left: Logo (slightly smaller on portrait) */}
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Shorago AI" className="h-8 w-auto sm:h-9 md:h-10" />
+            <Image
+              src="/logo.png"
+              alt="Shorago AI"
+              width={140}
+              height={40}
+              className="h-8 w-auto sm:h-9 md:h-10"
+              priority
+            />
           </div>
 
           {/* Middle: Location (hide on mobile) */}
@@ -204,7 +245,7 @@ export default function Page() {
               href={calendly}
               className="btn btn-primary px-3 py-2 text-xs whitespace-nowrap md:hidden"
             >
-              {lang === 'en' ? 'Demo' : 'Demo'}
+              Demo
             </a>
 
             {/* ≥ md: full CTA set */}
@@ -228,7 +269,7 @@ export default function Page() {
       </header>
 
       {/* HERO */}
-      <section className="container mx-auto max-w-6xl px-4 pt-10 sm:pt-16">
+      <section className="container mx-auto max-w-6xl px-4 pt-10 sm:pt-16 text-center">
         <span className="inline-flex rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300 ring-1 ring-white/10">
           {t.pill}
         </span>
@@ -237,11 +278,11 @@ export default function Page() {
           {t.hero_h1}
         </h1>
 
-        <p className="mt-4 max-w-2xl text-zinc-300">
+        <p className="mt-4 max-w-2xl mx-auto text-zinc-300">
           {t.hero_sub}
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href={calendly} className="btn btn-primary whitespace-nowrap">
             {t.hero_demo}
           </a>
@@ -251,13 +292,13 @@ export default function Page() {
         </div>
 
         {/* Before/After card */}
-        <div className="mt-10 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10 md:p-6">
+        <div className="mt-10 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10 md:p-6 text-left">
           <h3 className="text-lg font-semibold">{t.before_after_title}</h3>
           <div className="mt-4 grid gap-6 md:grid-cols-2">
             <div>
               <div className="text-xs font-semibold text-zinc-400">{t.before_label}</div>
               <ul className="mt-2 space-y-2 text-zinc-200">
-                {t.before_points.map((x: string) => (
+                {t.before_points.map((x) => (
                   <li key={x} className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-400" />
                     <span>{x}</span>
@@ -268,7 +309,7 @@ export default function Page() {
             <div>
               <div className="text-xs font-semibold text-zinc-400">{t.after_label}</div>
               <ul className="mt-2 space-y-2 text-zinc-200">
-                {t.after_points.map((x: string) => (
+                {t.after_points.map((x) => (
                   <li key={x} className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
                     <span>{x}</span>
@@ -284,7 +325,7 @@ export default function Page() {
       <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20">
         <h2 className="text-2xl font-bold sm:text-3xl">{t.problem_title}</h2>
         <ul className="mt-4 space-y-2 text-zinc-300">
-          {t.problem_points.map((x: string) => (
+          {t.problem_points.map((x) => (
             <li key={x} className="flex gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-400" />
               <span>{x}</span>
@@ -310,7 +351,7 @@ export default function Page() {
           <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
             <h3 className="text-lg font-semibold">{t.custom_examples_title}</h3>
             <ul className="mt-3 space-y-2 text-zinc-300">
-              {t.custom_examples.map((x: string) => (
+              {t.custom_examples.map((x) => (
                 <li key={x} className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
                   <span>{x}</span>
@@ -327,7 +368,7 @@ export default function Page() {
           <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
             <h3 className="text-lg font-semibold">{t.features_title}</h3>
             <ul className="mt-3 space-y-2 text-zinc-300">
-              {t.features_points.map((x: string) => (
+              {t.features_points.map((x) => (
                 <li key={x} className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
                   <span>{x}</span>
@@ -342,7 +383,7 @@ export default function Page() {
       <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20">
         <h2 className="text-2xl font-bold sm:text-3xl">{t.proof_title}</h2>
         <ul className="mt-4 space-y-2 text-zinc-300">
-          {t.proof_points.map((x: string) => (
+          {t.proof_points.map((x) => (
             <li key={x} className="flex gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-400" />
               <span>{x}</span>
@@ -357,7 +398,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold sm:text-3xl">{t.offer_title}</h2>
           <p className="mt-2 text-zinc-300">{t.offer_copy}</p>
           <ul className="mt-3 grid gap-2 text-zinc-200 sm:grid-cols-3">
-            {t.offer_points.map((x: string) => (
+            {t.offer_points.map((x) => (
               <li key={x} className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                 <span>{x}</span>
@@ -379,7 +420,7 @@ export default function Page() {
       <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20">
         <h2 className="text-2xl font-bold sm:text-3xl">{t.faq_title}</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {t.faqs.map((f: any) => (
+          {t.faqs.map((f: FAQ) => (
             <div key={f.q} className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
               <div className="font-semibold">{f.q}</div>
               <div className="mt-2 text-zinc-300">{f.a}</div>
