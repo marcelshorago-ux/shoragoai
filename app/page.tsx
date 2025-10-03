@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 // Replace with your real links
 const calendly = 'https://calendly.com/<your-handle>/30min';
-const waitlist = 'https://<your-waitlist-form-url>';
+const waitlist = "/waitlist";
 
 type Lang = 'en' | 'es';
 type FAQ = { q: string; a: string };
