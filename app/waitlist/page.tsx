@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Link from "next/link";
 
 const EMAIL = "marcel.shorago@gmail.com";
 
@@ -25,7 +26,6 @@ export default function WaitlistPage() {
         notes || "-",
       ].join("\n")
     );
-    // Opens the user's email client with prefilled content (no backend needed)
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
   }
 
@@ -85,12 +85,8 @@ export default function WaitlistPage() {
           </button>
         </form>
 
-        <p className="mt-3 text-xs text-zinc-400">
-          Submitting opens your email with the details pre-filled — no account required.
-        </p>
-
         <div className="mt-8">
-          <a href="/" className="text-violet-300 hover:underline">← Back to home</a>
+          <Link href="/" className="text-violet-300 hover:underline">← Back to home</Link>
         </div>
       </section>
     </main>
