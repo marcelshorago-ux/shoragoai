@@ -1,12 +1,11 @@
 'use client';
 
-import Image from 'next/image';
-import { useState } from 'react';
-import { openCalendly, CALENDLY_URL } from '../lib/calendly';
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { openCalendly, CALENDLY_URL } from "../lib/calendly";
 
-const waitlist = '/waitlist';
-
-type Lang = 'en' | 'es';
+type Lang = "en" | "es";
 type FAQ = { q: string; a: string };
 
 interface Copy {
@@ -49,176 +48,210 @@ interface Copy {
 
 const COPY: Record<Lang, Copy> = {
   en: {
-    nav_demo: 'Book a Demo',
-    nav_waitlist: 'Join Waitlist',
-    pill: 'Multi-Location Ops • EN/ES',
-    hero_h1: 'Turn Data Chaos Into Intelligence-Led Operations.',
-    hero_sub: 'Run every location in real-time. Optimize execution. Increase value.',
-    hero_demo: 'See the Live Demo',
-    hero_waitlist: 'Join the Waitlist',
-    before_after_title: 'Before vs After',
-    before_label: 'BEFORE',
-    after_label: 'AFTER',
+    nav_demo: "Book a Demo",
+    nav_waitlist: "Join Waitlist",
+    pill: "Multi-Location Ops • EN/ES",
+    hero_h1: "Turn Data Chaos Into Intelligence-Led Operations.",
+    hero_sub:
+      "Run every location in real-time. Optimize execution. Increase value.",
+    hero_demo: "See the Live Demo",
+    hero_waitlist: "Join the Waitlist",
+    before_after_title: "Before vs After",
+    before_label: "BEFORE",
+    after_label: "AFTER",
     before_points: [
-      'Weekly Excel recaps. Firefighting.',
-      'Inconsistent guest/client experience.',
+      "Weekly Excel recaps. Firefighting.",
+      "Inconsistent guest/client experience.",
       "“Who’s on it?” No idea.",
     ],
     after_points: [
-      'Live KPIs with owners and due dates.',
-      'Consistent execution across sites.',
-      '“Who’s on it?” Assigned. In progress. Proof attached.',
+      "Live KPIs with owners and due dates.",
+      "Consistent execution across sites.",
+      "“Who’s on it?” Assigned. In progress. Proof attached.",
     ],
-    problem_title: 'Spreadsheets ≠ Operations.',
+    problem_title: "Spreadsheets ≠ Operations.",
     problem_points: [
-      'Inconsistent locations. Late data. Slow decisions.',
-      'Managers report the news instead of fixing problems.',
-      'No single source of truth. No accountability.',
+      "Inconsistent locations. Late data. Slow decisions.",
+      "Managers report the news instead of fixing problems.",
+      "No single source of truth. No accountability.",
     ],
-    problem_card: 'We replace weekly recap chaos with live visibility and clear ownership.',
-    solution_title: 'Real-Time Ops + Custom AI Tools.',
-    custom_examples_title: 'Custom AI Examples',
+    problem_card:
+      "We replace weekly recap chaos with live visibility and clear ownership.",
+    solution_title: "Real-Time Ops + Custom AI Tools.",
+    custom_examples_title: "Custom AI Examples",
     custom_examples: [
-      'Vendor follow-ups with due dates + proof requests (WhatsApp/Email).',
-      'KPI drift alerts (missed routines, aging work orders, SLA breaches).',
-      'Auto-assign tasks to managers with reminders and escalation.',
-      'EN/ES messaging so your whole team adopts it day one.',
+      "Vendor follow-ups with due dates + proof requests (WhatsApp/Email).",
+      "KPI drift alerts (missed routines, aging work orders, SLA breaches).",
+      "Auto-assign tasks to managers with reminders and escalation.",
+      "EN/ES messaging so your whole team adopts it day one.",
     ],
-    solution_cta: 'Book a Demo',
-    features_title: 'Built for Multi-Location. Built for Speed.',
+    solution_cta: "Book a Demo",
+    features_title: "Built for Multi-Location. Built for Speed.",
     features_points: [
-      'Multi-Location Dashboard: KPIs, trends, and alerts in one view.',
-      'Custom AI Tools: auto-assign tasks, chase vendors, confirm completion.',
-      'Smart Alerts: threshold breaches, missed routines, aging work orders.',
-      'Bilingual Workflows: WhatsApp/Email comms in EN/ES.',
-      'Governance: roles, audit trails, accountability by manager/location.',
+      "Multi-Location Dashboard: KPIs, trends, and alerts in one view.",
+      "Custom AI Tools: auto-assign tasks, chase vendors, confirm completion.",
+      "Smart Alerts: threshold breaches, missed routines, aging work orders.",
+      "Bilingual Workflows: WhatsApp/Email comms in EN/ES.",
+      "Governance: roles, audit trails, accountability by manager/location.",
     ],
-    proof_title: 'Why Shorago AI',
+    proof_title: "Why Shorago AI",
     proof_points: [
-      '20 years in operations leadership — built for real ops, not slide decks.',
-      'Pilot-ready sprints to value.',
-      'Miami • South Florida roots. Bilingual by default.',
+      "20 years in operations leadership — built for real ops, not slide decks.",
+      "Pilot-ready sprints to value.",
+      "Miami • South Florida roots. Bilingual by default.",
     ],
-    offer_title: 'Simple Pricing to Start',
-    offer_copy: 'Stage 1 → $499/month (12-month). A fraction of the cost of a full-time ops analyst.',
-    offer_note: 'Founding 10 customers • price locked for 12 months',
+    offer_title: "Simple Pricing to Start",
+    offer_copy:
+      "Stage 1 → $499/month (12-month). A fraction of the cost of a full-time ops analyst.",
+    offer_note: "Founding 10 customers • price locked for 12 months",
     offer_points: [
-      'Live dashboard + alerts',
-      'Custom AI tools for your workflows',
-      'Bilingual onboarding + support',
+      "Live dashboard + alerts",
+      "Custom AI tools for your workflows",
+      "Bilingual onboarding + support",
     ],
-    offer_cta_demo: 'Book a Demo',
-    offer_cta_waitlist: 'Join the Waitlist',
-    faq_title: 'FAQ',
+    offer_cta_demo: "Book a Demo",
+    offer_cta_waitlist: "Join the Waitlist",
+    faq_title: "FAQ",
     faqs: [
-      { q: 'Who owns my data?', a: 'You do. We connect to your systems and keep everything exportable at any time.' },
-      { q: 'How fast can we launch?', a: 'Typical pilot is 2–4 weeks: connect data, define KPIs, ship first AI workflows.' },
-      { q: 'Do you support EN/ES teams?', a: 'Yes. All dashboards and workflows support English/Spanish from day one.' },
-      { q: 'What about security?', a: 'Modern cloud security practices; access limited by role and location.' },
+      {
+        q: "Who owns my data?",
+        a: "You do. We connect to your systems and keep everything exportable at any time.",
+      },
+      {
+        q: "How fast can we launch?",
+        a: "Typical pilot is 2–4 weeks: connect data, define KPIs, ship first AI workflows.",
+      },
+      {
+        q: "Do you support EN/ES teams?",
+        a: "Yes. All dashboards and workflows support English/Spanish from day one.",
+      },
+      {
+        q: "What about security?",
+        a: "Modern cloud security practices; access limited by role and location.",
+      },
     ],
-    final_close: 'Are you going to keep wasting time in spreadsheets… or finally run your business in real-time?',
-    final_cta: 'See the Live Demo',
-    location: 'Miami • South Florida',
-    lang_toggle: 'ES',
+    final_close:
+      "Are you going to keep wasting time in spreadsheets… or finally run your business in real-time?",
+    final_cta: "See the Live Demo",
+    location: "Miami • South Florida",
+    lang_toggle: "ES",
   },
   es: {
-    nav_demo: 'Agenda una demo',
-    nav_waitlist: 'Únete a la lista',
-    pill: 'Operación Multi-sede • EN/ES',
-    hero_h1: 'Convierte el caos de datos en operaciones inteligentes.',
-    hero_sub: 'Opera cada sede en tiempo real. Optimiza la ejecución. Aumenta el valor.',
-    hero_demo: 'Ver demo en vivo',
-    hero_waitlist: 'Únirme a la lista',
-    before_after_title: 'Antes vs Después',
-    before_label: 'ANTES',
-    after_label: 'DESPUÉS',
+    nav_demo: "Agenda una demo",
+    nav_waitlist: "Únete a la lista",
+    pill: "Operación Multi-sede • EN/ES",
+    hero_h1: "Convierte el caos de datos en operaciones inteligentes.",
+    hero_sub:
+      "Opera cada sede en tiempo real. Optimiza la ejecución. Aumenta el valor.",
+    hero_demo: "Ver demo en vivo",
+    hero_waitlist: "Únirme a la lista",
+    before_after_title: "Antes vs Después",
+    before_label: "ANTES",
+    after_label: "DESPUÉS",
     before_points: [
-      'Recaps semanales en Excel. Apagar incendios.',
-      'Experiencia del cliente inconsistente.',
-      '“¿Quién lo atiende?” Ni idea.',
+      "Recaps semanales en Excel. Apagar incendios.",
+      "Experiencia del cliente inconsistente.",
+      "“¿Quién lo atiende?” Ni idea.",
     ],
     after_points: [
-      'KPIs en vivo con responsables y fechas.',
-      'Ejecución consistente en todas las sedes.',
-      '“¿Quién lo atiende?” Asignado. En progreso. Evidencia adjunta.',
+      "KPIs en vivo con responsables y fechas.",
+      "Ejecución consistente en todas las sedes.",
+      "“¿Quién lo atiende?” Asignado. En progreso. Evidencia adjunta.",
     ],
-    problem_title: 'Las hojas de cálculo no son operaciones.',
+    problem_title: "Las hojas de cálculo no son operaciones.",
     problem_points: [
-      'Sucursales inconsistentes. Datos tardíos. Decisiones lentas.',
-      'Los mandos reportan, no resuelven.',
-      'Sin una sola fuente de verdad. Sin responsables.',
+      "Sucursales inconsistentes. Datos tardíos. Decisiones lentas.",
+      "Los mandos reportan, no resuelven.",
+      "Sin una sola fuente de verdad. Sin responsables.",
     ],
-    problem_card: 'Reemplazamos el caos de recaps con visibilidad en vivo y responsables claros.',
-    solution_title: 'Operación en tiempo real + IA a la medida.',
-    custom_examples_title: 'Ejemplos de IA a la medida',
+    problem_card:
+      "Reemplazamos el caos de recaps con visibilidad en vivo y responsables claros.",
+    solution_title: "Operación en tiempo real + IA a la medida.",
+    custom_examples_title: "Ejemplos de IA a la medida",
     custom_examples: [
-      'Seguimiento a proveedores con fechas + solicitud de evidencia (WhatsApp/Email).',
-      'Alertas de desvío de KPIs (rutinas omitidas, órdenes envejecidas, SLAs).',
-      'Autoasignación de tareas con recordatorios y escalación.',
-      'Mensajería EN/ES para adopción desde el día uno.',
+      "Seguimiento a proveedores con fechas + solicitud de evidencia (WhatsApp/Email).",
+      "Alertas de desvío de KPIs (rutinas omitidas, órdenes envejecidas, SLAs).",
+      "Autoasignación de tareas con recordatorios y escalación.",
+      "Mensajería EN/ES para adopción desde el día uno.",
     ],
-    solution_cta: 'Agenda una demo',
-    features_title: 'Hecho para varias sedes. Hecho para la velocidad.',
+    solution_cta: "Agenda una demo",
+    features_title: "Hecho para varias sedes. Hecho para la velocidad.",
     features_points: [
-      'Tablero multi-sede: KPIs, tendencias y alertas en una vista.',
-      'IA a la medida: asigna tareas, persigue proveedores, confirma cierre.',
-      'Alertas inteligentes: umbrales, rutinas omitidas, órdenes envejecidas.',
-      'Flujos bilingües: WhatsApp/Email EN/ES.',
-      'Gobernanza: roles, auditoría y responsables por sede/gerente.',
+      "Tablero multi-sede: KPIs, tendencias y alertas en una vista.",
+      "IA a la medida: asigna tareas, persigue proveedores, confirma cierre.",
+      "Alertas inteligentes: umbrales, rutinas omitidas, órdenes envejecidas.",
+      "Flujos bilingües: WhatsApp/Email EN/ES.",
+      "Gobernanza: roles, auditoría y responsables por sede/gerente.",
     ],
-    proof_title: 'Por qué Shorago AI',
+    proof_title: "Por qué Shorago AI",
     proof_points: [
-      '20 años en liderazgo de operaciones — construido para operación real.',
-      'Pilotos ancla y sprints rápidos hacia valor.',
-      'Miami • Sur de Florida. Bilingüe por defecto.',
+      "20 años en liderazgo de operaciones — construido para operación real.",
+      "Pilotos ancla y sprints rápidos hacia valor.",
+      "Miami • Sur de Florida. Bilingüe por defecto.",
     ],
-    offer_title: 'Precio simple para empezar',
-    offer_copy: 'Etapa 1 → $499/mes (12 meses). Una fracción del costo de un analista de operaciones.',
-    offer_note: 'Primeros 10 clientes fundadores • precio fijo por 12 meses',
+    offer_title: "Precio simple para empezar",
+    offer_copy:
+      "Etapa 1 → $499/mes (12 meses). Una fracción del costo de un analista de operaciones.",
+    offer_note: "Primeros 10 clientes fundadores • precio fijo por 12 meses",
     offer_points: [
-      'Tablero en vivo + alertas',
-      'Herramientas de IA a la medida',
-      'Onboarding y soporte bilingüe',
+      "Tablero en vivo + alertas",
+      "Herramientas de IA a la medida",
+      "Onboarding y soporte bilingüe",
     ],
-    offer_cta_demo: 'Agenda una demo',
-    offer_cta_waitlist: 'Únete a la lista',
-    faq_title: 'Preguntas frecuentes',
+    offer_cta_demo: "Agenda una demo",
+    offer_cta_waitlist: "Únete a la lista",
+    faq_title: "Preguntas frecuentes",
     faqs: [
-      { q: '¿Quién es dueño de mis datos?', a: 'Tú. Nos conectamos a tus sistemas y todo es exportable cuando quieras.' },
-      { q: '¿Qué tan rápido lanzamos?', a: 'Piloto típico de 2–4 semanas: conectar datos, definir KPIs y enviar primeras automatizaciones.' },
-      { q: '¿Soportan equipos EN/ES?', a: 'Sí. Dashboards y flujos bilingües desde el día uno.' },
-      { q: '¿Y la seguridad?', a: 'Prácticas modernas en la nube y accesos por rol y ubicación.' },
+      {
+        q: "¿Quién es dueño de mis datos?",
+        a: "Tú. Nos conectamos a tus sistemas y todo es exportable cuando quieras.",
+      },
+      {
+        q: "¿Qué tan rápido lanzamos?",
+        a: "Piloto típico de 2–4 semanas: conectar datos, definir KPIs y enviar primeras automatizaciones.",
+      },
+      {
+        q: "¿Soportan equipos EN/ES?",
+        a: "Sí. Dashboards y flujos bilingües desde el día uno.",
+      },
+      {
+        q: "¿Y la seguridad?",
+        a: "Prácticas modernas en la nube y accesos por rol y ubicación.",
+      },
     ],
-    final_close: '¿Vas a seguir perdiendo tiempo en hojas de cálculo… o por fin operar en tiempo real?',
-    final_cta: 'Ver demo en vivo',
-    location: 'Miami • South Florida',
-    lang_toggle: 'EN',
+    final_close:
+      "¿Vas a seguir perdiendo tiempo en hojas de cálculo… o por fin operar en tiempo real?",
+    final_cta: "Ver demo en vivo",
+    location: "Miami • South Florida",
+    lang_toggle: "EN",
   },
 };
 
 export default function Page() {
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLang] = useState<Lang>("en");
   const t = COPY[lang];
-  const toggleLang = () => setLang((p) => (p === 'en' ? 'es' : 'en'));
+  const toggleLang = () => setLang((p) => (p === "en" ? "es" : "en"));
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0c0a0f] via-[#0e0a13] to-[#0b0b0f] text-zinc-100">
       {/* HEADER */}
       <header className="container mx-auto max-w-6xl px-4 pt-6">
         <div className="flex items-center justify-between gap-3">
-          {/* Left: Logo */}
+          {/* Left: Logo (50% bigger than our earlier baseline) */}
           <div className="flex items-center gap-2">
             <Image
               src="/logo.png"
               alt="Shorago AI"
-              width={540}
-              height={180}
-              className="h-24 w-auto sm:h-28 md:h-32"
+              width={600}
+              height={200}
+              className="h-28 w-auto sm:h-32 md:h-36"
               priority
             />
           </div>
 
-          <div className="hidden md:block text-sm text-zinc-300">{t.location}</div>
+          <div className="hidden md:block text-sm text-zinc-300">
+            {t.location}
+          </div>
 
           {/* Right: CTAs */}
           <div className="flex items-center gap-2">
@@ -232,12 +265,18 @@ export default function Page() {
 
             {/* ≥ md: full CTA set */}
             <div className="hidden md:flex items-center gap-2">
-              <button onClick={() => openCalendly(CALENDLY_URL)} className="btn btn-muted px-3 py-2 text-sm whitespace-nowrap">
+              <button
+                onClick={() => openCalendly(CALENDLY_URL)}
+                className="btn btn-muted px-3 py-2 text-sm whitespace-nowrap"
+              >
                 {t.nav_demo}
               </button>
-              <a className="btn btn-secondary px-3 py-2 text-sm whitespace-nowrap" href={waitlist}>
+              <Link
+                href="/waitlist"
+                className="btn btn-secondary px-3 py-2 text-sm whitespace-nowrap"
+              >
                 {t.nav_waitlist}
-              </a>
+              </Link>
               <button
                 type="button"
                 onClick={toggleLang}
@@ -263,15 +302,45 @@ export default function Page() {
         <p className="mt-4 max-w-2xl mx-auto text-zinc-300">{t.hero_sub}</p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <button onClick={() => openCalendly(CALENDLY_URL)} className="btn btn-primary whitespace-nowrap">
+          <button
+            onClick={() => openCalendly(CALENDLY_URL)}
+            className="btn btn-primary whitespace-nowrap"
+          >
             {t.hero_demo}
           </button>
-          <a href={waitlist} className="btn btn-secondary whitespace-nowrap">
+          <Link href="/waitlist" className="btn btn-secondary whitespace-nowrap">
             {t.hero_waitlist}
-          </a>
+          </Link>
         </div>
 
-        {/* ...rest of the page unchanged... */}
+        {/* BEFORE vs AFTER card */}
+        <div className="mx-auto mt-8 max-w-5xl rounded-2xl bg-white/5 p-5 text-left ring-1 ring-white/10">
+          <h3 className="text-lg font-semibold">{t.before_after_title}</h3>
+          <div className="mt-4 grid gap-6 md:grid-cols-2">
+            <div>
+              <div className="text-xs text-zinc-400">{t.before_label}</div>
+              <ul className="mt-2 space-y-2 text-zinc-300">
+                {t.before_points.map((x) => (
+                  <li key={x} className="flex gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="text-xs text-zinc-400">{t.after_label}</div>
+              <ul className="mt-2 space-y-2 text-zinc-300">
+                {t.after_points.map((x) => (
+                  <li key={x} className="flex gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-400" />
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* PROBLEM */}
@@ -289,7 +358,10 @@ export default function Page() {
         <div className="mt-6 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
           <p className="text-zinc-200">{t.problem_card}</p>
           <div className="mt-4">
-            <button onClick={() => openCalendly(CALENDLY_URL)} className="btn btn-primary whitespace-nowrap">
+            <button
+              onClick={() => openCalendly(CALENDLY_URL)}
+              className="btn btn-primary whitespace-nowrap"
+            >
               {t.solution_cta}
             </button>
           </div>
@@ -301,19 +373,35 @@ export default function Page() {
         <h2 className="text-2xl font-bold sm:text-3xl">{t.solution_title}</h2>
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {/* Custom AI Examples */}
           <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
             <h3 className="text-lg font-semibold">{t.custom_examples_title}</h3>
-            {/* ...list items unchanged... */}
+            <ul className="mt-3 space-y-2 text-zinc-300">
+              {t.custom_examples.map((x) => (
+                <li key={x} className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-400" />
+                  <span>{x}</span>
+                </li>
+              ))}
+            </ul>
             <div className="mt-4">
-              <a href={waitlist} className="btn btn-secondary whitespace-nowrap">
+              <Link href="/waitlist" className="btn btn-secondary whitespace-nowrap">
                 {t.nav_waitlist}
-              </a>
+              </Link>
             </div>
           </div>
 
+          {/* Features */}
           <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
             <h3 className="text-lg font-semibold">{t.features_title}</h3>
-            {/* ...features list unchanged... */}
+            <ul className="mt-3 space-y-2 text-zinc-300">
+              {t.features_points.map((x) => (
+                <li key={x} className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                  <span>{x}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -321,7 +409,14 @@ export default function Page() {
       {/* PROOF */}
       <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20">
         <h2 className="text-2xl font-bold sm:text-3xl">{t.proof_title}</h2>
-        {/* ...proof list unchanged... */}
+        <ul className="mt-4 space-y-2 text-zinc-300">
+          {t.proof_points.map((x) => (
+            <li key={x} className="flex gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-400" />
+              <span>{x}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* OFFER */}
@@ -330,27 +425,55 @@ export default function Page() {
           <h2 className="text-2xl font-bold sm:text-3xl">{t.offer_title}</h2>
           <p className="mt-2 text-zinc-300">{t.offer_copy}</p>
           <p className="mt-1 text-xs text-zinc-400">{t.offer_note}</p>
-          {/* ...points... */}
+
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {t.offer_points.map((x) => (
+              <div key={x} className="flex gap-2 text-zinc-300">
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-400" />
+                <span>{x}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-5 flex flex-wrap gap-3">
-            <button onClick={() => openCalendly(CALENDLY_URL)} className="btn btn-primary whitespace-nowrap">
+            <button
+              onClick={() => openCalendly(CALENDLY_URL)}
+              className="btn btn-primary whitespace-nowrap"
+            >
               {t.offer_cta_demo}
             </button>
-            <a href={waitlist} className="btn btn-secondary whitespace-nowrap">
+            <Link href="/waitlist" className="btn btn-secondary whitespace-nowrap">
               {t.offer_cta_waitlist}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      {/* ...unchanged... */}
+      <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20">
+        <h2 className="text-2xl font-bold sm:text-3xl">{t.faq_title}</h2>
+        <div className="mt-4 space-y-4">
+          {t.faqs.map((item) => (
+            <div
+              key={item.q}
+              className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10"
+            >
+              <div className="font-semibold">{item.q}</div>
+              <p className="mt-2 text-zinc-300">{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* FINAL CLOSE */}
       <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20 pb-24">
         <div className="rounded-2xl bg-white/5 p-6 text-center ring-1 ring-white/10">
           <h3 className="text-xl font-bold sm:text-2xl">{t.final_close}</h3>
           <div className="mt-5 flex justify-center">
-            <button onClick={() => openCalendly(CALENDLY_URL)} className="btn btn-primary whitespace-nowrap">
+            <button
+              onClick={() => openCalendly(CALENDLY_URL)}
+              className="btn btn-primary whitespace-nowrap"
+            >
               {t.final_cta}
             </button>
           </div>
