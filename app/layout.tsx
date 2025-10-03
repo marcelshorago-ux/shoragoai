@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
 
 export const metadata = {
   title: "Shorago AI",
@@ -30,11 +29,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Analytics />
         <SpeedInsights />
-        {/* Calendly popup widget JS */}
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

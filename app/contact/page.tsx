@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { openCalendly, CALENDLY_URL } from "../../lib/calendly";
+import { CALENDLY_URL } from "../../lib/calendly";
 
 const EMAIL = "marcel.shorago@gmail.com";
 
@@ -31,9 +31,9 @@ export default function ContactPage() {
             <p className="mt-2 text-zinc-300">
               See how Shorago AI runs multi-location ops in real-time.
             </p>
-            <button onClick={() => openCalendly(CALENDLY_URL)} className="btn btn-primary mt-4 inline-flex">
+            <a href={CALENDLY_URL} className="btn btn-primary mt-4 inline-flex" target="_blank" rel="noopener">
               Open Calendly
-            </button>
+            </a>
           </div>
 
           <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">

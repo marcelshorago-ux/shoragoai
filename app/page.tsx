@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { openCalendly, CALENDLY_URL } from "../lib/calendly";
+import { CALENDLY_URL } from "../lib/calendly";
 
 type Lang = "en" | "es";
 type FAQ = { q: string; a: string };
@@ -237,7 +237,7 @@ export default function Page() {
       {/* HEADER */}
       <header className="container mx-auto max-w-6xl px-4 pt-6">
         <div className="flex items-center justify-between gap-3">
-          {/* Left: Logo (50% bigger than our earlier baseline) */}
+          {/* Left: Logo */}
           <div className="flex items-center gap-2">
             <Image
               src="/logo.png"
@@ -255,22 +255,20 @@ export default function Page() {
 
           {/* Right: CTAs */}
           <div className="flex items-center gap-2">
-            {/* Mobile: one Demo button triggers popup */}
-            <button
-              onClick={() => openCalendly(CALENDLY_URL)}
+            {/* Mobile: one Demo link */}
+            <a
+              href={CALENDLY_URL}
               className="btn btn-primary px-3 py-2 text-xs whitespace-nowrap md:hidden"
+              target="_blank" rel="noopener"
             >
               Demo
-            </button>
+            </a>
 
             {/* ≥ md: full CTA set */}
             <div className="hidden md:flex items-center gap-2">
-              <button
-                onClick={() => openCalendly(CALENDLY_URL)}
-                className="btn btn-muted px-3 py-2 text-sm whitespace-nowrap"
-              >
+              <a href={CALENDLY_URL} className="btn btn-muted px-3 py-2 text-sm whitespace-nowrap" target="_blank" rel="noopener">
                 {t.nav_demo}
-              </button>
+              </a>
               <Link
                 href="/waitlist"
                 className="btn btn-secondary px-3 py-2 text-sm whitespace-nowrap"
@@ -302,12 +300,9 @@ export default function Page() {
         <p className="mt-4 max-w-2xl mx-auto text-zinc-300">{t.hero_sub}</p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <button
-            onClick={() => openCalendly(CALENDLY_URL)}
-            className="btn btn-primary whitespace-nowrap"
-          >
+          <a href={CALENDLY_URL} className="btn btn-primary whitespace-nowrap" target="_blank" rel="noopener">
             {t.hero_demo}
-          </button>
+          </a>
           <Link href="/waitlist" className="btn btn-secondary whitespace-nowrap">
             {t.hero_waitlist}
           </Link>
@@ -358,12 +353,9 @@ export default function Page() {
         <div className="mt-6 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
           <p className="text-zinc-200">{t.problem_card}</p>
           <div className="mt-4">
-            <button
-              onClick={() => openCalendly(CALENDLY_URL)}
-              className="btn btn-primary whitespace-nowrap"
-            >
+            <a href={CALENDLY_URL} className="btn btn-primary whitespace-nowrap" target="_blank" rel="noopener">
               {t.solution_cta}
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -436,12 +428,9 @@ export default function Page() {
           </div>
 
           <div className="mt-5 flex flex-wrap gap-3">
-            <button
-              onClick={() => openCalendly(CALENDLY_URL)}
-              className="btn btn-primary whitespace-nowrap"
-            >
+            <a href={CALENDLY_URL} className="btn btn-primary whitespace-nowrap" target="_blank" rel="noopener">
               {t.offer_cta_demo}
-            </button>
+            </a>
             <Link href="/waitlist" className="btn btn-secondary whitespace-nowrap">
               {t.offer_cta_waitlist}
             </Link>
@@ -470,12 +459,9 @@ export default function Page() {
         <div className="rounded-2xl bg-white/5 p-6 text-center ring-1 ring-white/10">
           <h3 className="text-xl font-bold sm:text-2xl">{t.final_close}</h3>
           <div className="mt-5 flex justify-center">
-            <button
-              onClick={() => openCalendly(CALENDLY_URL)}
-              className="btn btn-primary whitespace-nowrap"
-            >
+            <a href={CALENDLY_URL} className="btn btn-primary whitespace-nowrap" target="_blank" rel="noopener">
               {t.final_cta}
-            </button>
+            </a>
           </div>
         </div>
       </section>
