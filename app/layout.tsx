@@ -4,52 +4,23 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://shoragoai.com"),
-  title: {
-    default: "Shorago AI — Real-Time Ops & Custom AI Tools",
-    template: "%s | Shorago AI",
-  },
-  description:
-    "Turn data chaos into intelligence-led operations. Multi-location dashboards, KPI alerts, and custom AI tools that automate your workflows (EN/ES).",
-  keywords: [
-    "operations",
-    "AI",
-    "dashboards",
-    "multi-location",
-    "franchises",
-    "gyms",
-    "contractors",
-    "clinics",
-    "Miami",
-    "South Florida",
-  ],
-  openGraph: {
-    type: "website",
-    url: "https://shoragoai.com/",
-    siteName: "Shorago AI",
-    title: "Shorago AI — Real-Time Ops & Custom AI Tools",
-    description:
-      "Run every location in real-time. Optimize execution. Increase value. EN/ES.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Shorago AI",
-      },
+export const metadata = {
+  title: "Shorago AI",
+  description: "Turn data chaos into intelligence-led operations.",
+  manifest: "/manifest.webmanifest",
+  themeColor: "#0b0b0f",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" }
     ],
+    apple: "/apple-touch-icon.png"
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Shorago AI — Real-Time Ops & Custom AI Tools",
-    description:
-      "Run every location in real-time. Optimize execution. Increase value. EN/ES.",
-    images: ["/og-image.png"],
-  },
-  alternates: {
-    canonical: "https://shoragoai.com/",
-  },
+  appleWebApp: {
+    capable: true,
+    title: "Shorago AI",
+    statusBarStyle: "black-translucent"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
