@@ -43,3 +43,10 @@ body { padding-top: var(--safe-top, 0); }
   .hero-wrap { padding-top: 0.25rem; }
   .hero-title { line-height: 1.05; }
 }
+
+
+@media (max-width: 768px) {
+  header { padding-bottom: 0; }
+  .hero-wrap { margin-top: 0.5rem; }
+  [data-mobile-cta] { position: relative; z-index: 10; }
+}
