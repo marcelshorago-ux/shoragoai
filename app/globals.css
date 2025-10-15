@@ -29,3 +29,17 @@ body {
 .badge { @apply inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/10 text-white/90 text-xs font-medium; }
 .hr { @apply my-10 h-px bg-white/10 border-0; }
 a { @apply underline-offset-4 hover:underline; }
+
+
+/* --- Mobile polish --- */
+:root { --safe-top: env(safe-area-inset-top); }
+body { padding-top: var(--safe-top, 0); }
+
+/* Let CTA rows wrap nicely on small screens */
+.cta-row { display:flex; flex-wrap:wrap; gap:.75rem; }
+
+/* Smaller hero on phones so nothing collides */
+@media (max-width: 640px) {
+  .hero-wrap { padding-top: 0.25rem; }
+  .hero-title { line-height: 1.05; }
+}

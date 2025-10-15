@@ -277,7 +277,20 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </header>
+      
+</header>
+{/* Mobile CTA bar (phones only) */}
+<div data-mobile-cta className="md:hidden px-4 pt-4">
+  <a
+    href={CALENDLY_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="btn btn-primary w-full"
+  >
+    Book Your AI Consultation
+  </a>
+</div>
+
 
       {/* HERO */}
       <section className="container mx-auto max-w-6xl px-4 pt-10 sm:pt-16 text-center">
