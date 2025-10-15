@@ -1,3 +1,22 @@
+
+export const metadata = {
+  title: "Shorago AI",
+  description: "AI consulting and implementation for non-technical teams — we map, automate, and train your operations to run on AI.",
+  openGraph: {
+    title: "Shorago AI — AI Workflow Consulting",
+    description: "We help your business use AI, from workflow audits to automation rollout.",
+    url: "https://shoragoai.com",
+    siteName: "Shorago AI",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+};
+
 'use client';
 
 import Image from "next/image";
@@ -263,8 +282,8 @@ export default function Page() {
               {t.nav_demo}
             </a>
 
-            {/* ≥ md: full CTA set */}
-            <div className="hidden md:flex items-center gap-2">
+            {/* CTAs (always visible, even on mobile) */}
+            <div className="flex items-center gap-2 flex-wrap justify-end">
               <a href={CALENDLY_URL} className="btn btn-muted px-3 py-2 text-sm whitespace-nowrap" target="_blank" rel="noopener">
                 {t.nav_demo}
               </a>
