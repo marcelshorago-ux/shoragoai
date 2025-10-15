@@ -50,3 +50,11 @@ body { padding-top: var(--safe-top, 0); }
   .hero-wrap { margin-top: 0.5rem; }
   [data-mobile-cta] { position: relative; z-index: 10; }
 }
+
+/* Hide header CTAs on small screens (keep hero/mobile CTAs visible) */
+@media (max-width: 768px) {
+  header a.btn { display: none !important; }
+  /* make sure our mobile CTA bar sits above hero */
+  [data-mobile-cta] { position: relative; z-index: 10; }
+}
+
