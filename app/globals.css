@@ -58,3 +58,17 @@ body { padding-top: var(--safe-top, 0); }
   [data-mobile-cta] { position: relative; z-index: 10; }
 }
 
+
+
+/* Normalize bullet list alignment on mobile */
+@media (max-width: 768px) {
+  ul { 
+    padding-left: 1.25rem !important;
+    margin-left: 0 !important;
+    list-style-position: outside !important;
+  }
+  ul li {
+    margin-bottom: 0.35rem !important;
+    line-height: 1.4 !important;
+  }
+}
