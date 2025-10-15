@@ -1,22 +1,3 @@
-
-export const metadata = {
-  title: "Shorago AI",
-  description: "AI consulting and implementation for non-technical teams — we map, automate, and train your operations to run on AI.",
-  openGraph: {
-    title: "Shorago AI — AI Workflow Consulting",
-    description: "We help your business use AI, from workflow audits to automation rollout.",
-    url: "https://shoragoai.com",
-    siteName: "Shorago AI",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-    locale: "en_US",
-    type: "website",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-};
-
 'use client';
 
 import Image from "next/image";
