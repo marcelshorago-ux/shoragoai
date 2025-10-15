@@ -14,6 +14,7 @@ interface Copy {
   pill: string;
   hero_h1: string;
   hero_sub: string;
+  hero_points: string[];
   hero_demo: string;
   hero_waitlist: string;
   before_after_title: string;
@@ -28,6 +29,10 @@ interface Copy {
   custom_examples_title: string;
   custom_examples: string[];
   solution_cta: string;
+  consulting_title: string;
+  consulting_body: string;
+  consulting_points: string[];
+  consulting_cta: string;
   features_title: string;
   features_points: string[];
   proof_title: string;
@@ -48,183 +53,179 @@ interface Copy {
 
 const COPY: Record<Lang, Copy> = {
   en: {
-    nav_demo: "Book a Demo",
+    nav_demo: "Book Your AI Consultation",
     nav_waitlist: "Join Waitlist",
-    pill: "Multi-Location Ops • EN/ES",
-    hero_h1: "Turn Data Chaos Into Intelligence-Led Operations.",
-    hero_sub:
-      "Run every location in real-time. Optimize execution. Increase value.",
-    hero_demo: "See the Live Demo",
+    pill: "AI Workflow Consulting • EN/ES",
+    hero_h1: "We turn your everyday workflows into AI-powered systems.",
+    hero_sub: "From discovery to build and rollout — we guide non-technical teams to real results.",
+    hero_points: [
+      "We map your processes and find quick wins.",
+      "We implement practical AI tools into your daily operations.",
+      "We train your team and measure impact."
+    ],
+    hero_demo: "Start Your Workflow Audit",
     hero_waitlist: "Join the Waitlist",
     before_after_title: "Before vs After",
     before_label: "BEFORE",
     after_label: "AFTER",
     before_points: [
-      "Weekly Excel recaps. Firefighting.",
-      "Inconsistent guest/client experience.",
-      "“Who’s on it?” No idea.",
+      "Unclear where to start with AI.",
+      "Manual reports, late decisions.",
+      "Tasks slip through the cracks."
     ],
     after_points: [
+      "Clear AI roadmap, prioritized by ROI.",
       "Live KPIs with owners and due dates.",
-      "Consistent execution across sites.",
-      "“Who’s on it?” Assigned. In progress. Proof attached.",
+      "Automated nudges and proof of completion."
     ],
-    problem_title: "Spreadsheets ≠ Operations.",
+    problem_title: "Most teams don’t need more tools — they need a guide.",
     problem_points: [
-      "Inconsistent locations. Late data. Slow decisions.",
-      "Managers report the news instead of fixing problems.",
-      "No single source of truth. No accountability.",
+      "AI feels like hype and buzzwords.",
+      "Your data lives in spreadsheets and inboxes.",
+      "No single owner driving adoption and results."
     ],
-    problem_card:
-      "We replace weekly recap chaos with live visibility and clear ownership.",
-    solution_title: "Real-Time Ops + Custom AI Tools.",
-    custom_examples_title: "Custom AI Examples",
+    problem_card: "We consult, design, and implement — so AI sticks and your team actually uses it.",
+    solution_title: "Real-Time Ops + Custom AI, implemented for you.",
+    custom_examples_title: "What we’ll build first",
     custom_examples: [
-      "Vendor follow-ups with due dates + proof requests (WhatsApp/Email).",
-      "KPI drift alerts (missed routines, aging work orders, SLA breaches).",
-      "Auto-assign tasks to managers with reminders and escalation.",
-      "EN/ES messaging so your whole team adopts it day one.",
+      "KPI drift alerts and auto follow-ups to managers.",
+      "Vendor chasing with due dates + proof requests (Email/WhatsApp).",
+      "Daily huddles auto-generated from live metrics.",
+      "Multi-location dashboards with roles and audit trails."
     ],
-    solution_cta: "Book a Demo",
-    features_title: "Built for Multi-Location. Built for Speed.",
+    solution_cta: "Talk to an Expert",
+    consulting_title: "AI Consulting + Implementation for Non-Technical Teams",
+    consulting_body:
+      "We start with a lightweight AI Workflow Audit, then ship the first automation fast. You’ll get recommendations, a clear roadmap, and hands-on implementation — not theory.",
+    consulting_points: [
+      "Workflow Audit: we map your processes and surface automation opportunities.",
+      "Pilot Build: we implement the first tool and train your team (EN/ES).",
+      "Scale: roll out more automations and dashboards based on impact."
+    ],
+    consulting_cta: "Book Your AI Consultation",
+    features_title: "Built for multi-location. Built for adoption.",
     features_points: [
-      "Multi-Location Dashboard: KPIs, trends, and alerts in one view.",
-      "Custom AI Tools: auto-assign tasks, chase vendors, confirm completion.",
-      "Smart Alerts: threshold breaches, missed routines, aging work orders.",
-      "Bilingual Workflows: WhatsApp/Email comms in EN/ES.",
-      "Governance: roles, audit trails, accountability by manager/location.",
+      "Multi-Location Dashboard: KPIs and trends in one view.",
+      "AI Automations: assign tasks, chase vendors, confirm completion.",
+      "Smart Alerts: thresholds, missed routines, aging work orders.",
+      "Bilingual Workflows: WhatsApp/Email in EN/ES.",
+      "Governance: roles, audit trails, accountability per manager/site."
     ],
     proof_title: "Why Shorago AI",
     proof_points: [
-      "20 years in operations leadership — built for real ops, not slide decks.",
-      "Pilot-ready sprints to value.",
-      "Miami • South Florida roots. Bilingual by default.",
+      "20 years in operations leadership — we build for real-world teams.",
+      "Pilot sprints that show value in weeks, not months.",
+      "Miami • South Florida roots. Bilingual by default."
     ],
-    offer_title: "Simple Pricing to Start",
-    offer_copy:
-      "Stage 1 → $499/month (12-month). A fraction of the cost of a full-time ops analyst.",
-    offer_note: "Founding 10 customers • price locked for 12 months",
+    offer_title: "Simple Starter Plan (Founders Offer)",
+    offer_copy: "Stage 1 → $499/month (12-month). Includes AI Workflow Audit + first automation implementation + support.",
+    offer_note: "For the first 10 founding customers — price locked for 12 months.",
     offer_points: [
-      "Live dashboard + alerts",
-      "Custom AI tools for your workflows",
-      "Bilingual onboarding + support",
+      "Audit + roadmap + quick wins",
+      "First automation included",
+      "Bilingual onboarding + support"
     ],
-    offer_cta_demo: "Book a Demo",
+    offer_cta_demo: "Book Your AI Consultation",
     offer_cta_waitlist: "Join the Waitlist",
     faq_title: "FAQ",
     faqs: [
-      {
-        q: "Who owns my data?",
-        a: "You do. We connect to your systems and keep everything exportable at any time.",
-      },
-      {
-        q: "How fast can we launch?",
-        a: "Typical pilot is 2–4 weeks: connect data, define KPIs, ship first AI workflows.",
-      },
-      {
-        q: "Do you support EN/ES teams?",
-        a: "Yes. All dashboards and workflows support English/Spanish from day one.",
-      },
-      {
-        q: "What about security?",
-        a: "Modern cloud security practices; access limited by role and location.",
-      },
+      { q: "We’re new to AI — is this for us?", a: "Yes. We specialize in guiding non-technical teams from zero to working automations with training and support." },
+      { q: "How fast can we launch?", a: "Typical pilot is 2–4 weeks: connect data, define KPIs, ship the first automation, and train your team." },
+      { q: "Who owns the data and tools?", a: "You do. We connect to your systems, and everything is exportable. We’ll document the setup for your team." },
+      { q: "What if our processes are messy?", a: "That’s exactly when consulting helps. We map your workflows, simplify where needed, and implement practical tools." }
     ],
-    final_close:
-      "Are you going to keep wasting time in spreadsheets… or finally run your business in real-time?",
-    final_cta: "See the Live Demo",
+    final_close: "Ready to move from “we should use AI” to “AI runs our workflows every day”?",
+    final_cta: "Start Your Workflow Audit",
     location: "Miami • South Florida",
-    lang_toggle: "ES",
+    lang_toggle: "ES"
   },
   es: {
-    nav_demo: "Agenda una demo",
+    nav_demo: "Agenda tu consulta de IA",
     nav_waitlist: "Únete a la lista",
-    pill: "Operación Multi-sede • EN/ES",
-    hero_h1: "Convierte el caos de datos en operaciones inteligentes.",
-    hero_sub:
-      "Opera cada sede en tiempo real. Optimiza la ejecución. Aumenta el valor.",
-    hero_demo: "Ver demo en vivo",
-    hero_waitlist: "Únirme a la lista",
+    pill: "Consultoría de flujos con IA • EN/ES",
+    hero_h1: "Convertimos tus flujos diarios en sistemas con IA.",
+    hero_sub: "De descubrimiento a implementación — guiamos a equipos no técnicos hasta resultados reales.",
+    hero_points: [
+      "Mapeamos procesos y encontramos quick wins.",
+      "Implementamos herramientas de IA en tu operación diaria.",
+      "Capacitamos al equipo y medimos impacto."
+    ],
+    hero_demo: "Inicia tu Auditoría de Flujos",
+    hero_waitlist: "Únete a la lista",
     before_after_title: "Antes vs Después",
     before_label: "ANTES",
     after_label: "DESPUÉS",
     before_points: [
-      "Recaps semanales en Excel. Apagar incendios.",
-      "Experiencia del cliente inconsistente.",
-      "“¿Quién lo atiende?” Ni idea.",
+      "No sabes por dónde empezar con IA.",
+      "Reportes manuales, decisiones tardías.",
+      "Las tareas se pierden."
     ],
     after_points: [
+      "Ruta clara de IA priorizada por ROI.",
       "KPIs en vivo con responsables y fechas.",
-      "Ejecución consistente en todas las sedes.",
-      "“¿Quién lo atiende?” Asignado. En progreso. Evidencia adjunta.",
+      "Recordatorios automáticos y evidencia de cierre."
     ],
-    problem_title: "Las hojas de cálculo no son operaciones.",
+    problem_title: "La mayoría no necesita más apps — necesita una guía.",
     problem_points: [
-      "Sucursales inconsistentes. Datos tardíos. Decisiones lentas.",
-      "Los mandos reportan, no resuelven.",
-      "Sin una sola fuente de verdad. Sin responsables.",
+      "La IA se siente como pura moda.",
+      "Los datos viven en hojas y correos.",
+      "Nadie lidera adopción y resultados."
     ],
-    problem_card:
-      "Reemplazamos el caos de recaps con visibilidad en vivo y responsables claros.",
-    solution_title: "Operación en tiempo real + IA a la medida.",
-    custom_examples_title: "Ejemplos de IA a la medida",
+    problem_card: "Consultamos, diseñamos e implementamos — para que la IA sí se use.",
+    solution_title: "Operación en tiempo real + IA a la medida, implementada por nosotros.",
+    custom_examples_title: "Lo primero que construiremos",
     custom_examples: [
-      "Seguimiento a proveedores con fechas + solicitud de evidencia (WhatsApp/Email).",
-      "Alertas de desvío de KPIs (rutinas omitidas, órdenes envejecidas, SLAs).",
-      "Autoasignación de tareas con recordatorios y escalación.",
-      "Mensajería EN/ES para adopción desde el día uno.",
+      "Alertas por desvío y seguimientos automáticos a gerentes.",
+      "Gestión de proveedores con fechas + solicitud de evidencia (Email/WhatsApp).",
+      "Huddles diarios generados con métricas en vivo.",
+      "Tableros multi-sede con roles y auditoría."
     ],
-    solution_cta: "Agenda una demo",
-    features_title: "Hecho para varias sedes. Hecho para la velocidad.",
+    solution_cta: "Habla con un experto",
+    consulting_title: "Consultoría + Implementación de IA para equipos no técnicos",
+    consulting_body:
+      "Iniciamos con una Auditoría de Flujos de IA y enviamos la primera automatización rápido. Obtendrás recomendaciones, una ruta clara y ejecución práctica.",
+    consulting_points: [
+      "Auditoría de Flujos: mapeamos procesos y oportunidades.",
+      "Piloto: implementamos la primera herramienta y capacitamos (EN/ES).",
+      "Escala: desplegamos más automatizaciones y dashboards según impacto."
+    ],
+    consulting_cta: "Agenda tu consulta de IA",
+    features_title: "Hecho para multi-sede. Hecho para adopción.",
     features_points: [
-      "Tablero multi-sede: KPIs, tendencias y alertas en una vista.",
-      "IA a la medida: asigna tareas, persigue proveedores, confirma cierre.",
+      "Tablero multi-sede: KPIs y tendencias en una vista.",
+      "Automatizaciones: asigna tareas, persigue proveedores, confirma cierre.",
       "Alertas inteligentes: umbrales, rutinas omitidas, órdenes envejecidas.",
       "Flujos bilingües: WhatsApp/Email EN/ES.",
-      "Gobernanza: roles, auditoría y responsables por sede/gerente.",
+      "Gobernanza: roles, auditoría y responsables por sede."
     ],
     proof_title: "Por qué Shorago AI",
     proof_points: [
-      "20 años en liderazgo de operaciones — construido para operación real.",
-      "Pilotos ancla y sprints rápidos hacia valor.",
-      "Miami • Sur de Florida. Bilingüe por defecto.",
+      "20 años en liderazgo de operaciones — para equipos reales.",
+      "Sprints piloto con valor en semanas.",
+      "Miami • Sur de Florida. Bilingüe de base."
     ],
-    offer_title: "Precio simple para empezar",
-    offer_copy:
-      "Etapa 1 → $499/mes (12 meses). Una fracción del costo de un analista de operaciones.",
-    offer_note: "Primeros 10 clientes fundadores • precio fijo por 12 meses",
+    offer_title: "Plan inicial simple (Oferta Fundadores)",
+    offer_copy: "Etapa 1 → $499/mes (12 meses). Incluye Auditoría de Flujos de IA + primera automatización + soporte.",
+    offer_note: "Para los primeros 10 clientes fundadores — precio fijo por 12 meses.",
     offer_points: [
-      "Tablero en vivo + alertas",
-      "Herramientas de IA a la medida",
-      "Onboarding y soporte bilingüe",
+      "Auditoría + ruta + quick wins",
+      "Primera automatización incluida",
+      "Onboarding y soporte bilingüe"
     ],
-    offer_cta_demo: "Agenda una demo",
+    offer_cta_demo: "Agenda tu consulta de IA",
     offer_cta_waitlist: "Únete a la lista",
     faq_title: "Preguntas frecuentes",
     faqs: [
-      {
-        q: "¿Quién es dueño de mis datos?",
-        a: "Tú. Nos conectamos a tus sistemas y todo es exportable cuando quieras.",
-      },
-      {
-        q: "¿Qué tan rápido lanzamos?",
-        a: "Piloto típico de 2–4 semanas: conectar datos, definir KPIs y enviar primeras automatizaciones.",
-      },
-      {
-        q: "¿Soportan equipos EN/ES?",
-        a: "Sí. Dashboards y flujos bilingües desde el día uno.",
-      },
-      {
-        q: "¿Y la seguridad?",
-        a: "Prácticas modernas en la nube y accesos por rol y ubicación.",
-      },
+      { q: "Somos nuevos en IA — ¿esto es para nosotros?", a: "Sí. Guiamos a equipos no técnicos hasta automatizaciones funcionando con capacitación y soporte." },
+      { q: "¿Qué tan rápido lanzamos?", a: "Piloto típico de 2–4 semanas: conectar datos, definir KPIs, primera automatización y entrenamiento." },
+      { q: "¿Quién es dueño de los datos y herramientas?", a: "Tú. Conectamos a tus sistemas y todo es exportable. Documentamos la configuración." },
+      { q: "¿Y si nuestros procesos son un lío?", a: "Justo ahí ayuda la consultoría. Mapeamos, simplificamos e implementamos herramientas prácticas." }
     ],
-    final_close:
-      "¿Vas a seguir perdiendo tiempo en hojas de cálculo… o por fin operar en tiempo real?",
-    final_cta: "Ver demo en vivo",
+    final_close: "¿Listo para pasar de “deberíamos usar IA” a “la IA opera nuestros flujos a diario”?",
+    final_cta: "Inicia tu Auditoría de Flujos",
     location: "Miami • South Florida",
-    lang_toggle: "EN",
-  },
+    lang_toggle: "EN"
+  }
 };
 
 export default function Page() {
@@ -249,19 +250,17 @@ export default function Page() {
             />
           </div>
 
-          <div className="hidden md:block text-sm text-zinc-300">
-            {t.location}
-          </div>
+          <div className="hidden md:block text-sm text-zinc-300">{t.location}</div>
 
           {/* Right: CTAs */}
           <div className="flex items-center gap-2">
-            {/* Mobile: one Demo link */}
+            {/* Mobile: one external link */}
             <a
               href={CALENDLY_URL}
               className="btn btn-primary px-3 py-2 text-xs whitespace-nowrap md:hidden"
               target="_blank" rel="noopener"
             >
-              Demo
+              {t.nav_demo}
             </a>
 
             {/* ≥ md: full CTA set */}
@@ -269,17 +268,10 @@ export default function Page() {
               <a href={CALENDLY_URL} className="btn btn-muted px-3 py-2 text-sm whitespace-nowrap" target="_blank" rel="noopener">
                 {t.nav_demo}
               </a>
-              <Link
-                href="/waitlist"
-                className="btn btn-secondary px-3 py-2 text-sm whitespace-nowrap"
-              >
+              <Link href="/waitlist" className="btn btn-secondary px-3 py-2 text-sm whitespace-nowrap">
                 {t.nav_waitlist}
               </Link>
-              <button
-                type="button"
-                onClick={toggleLang}
-                className="btn btn-primary px-3 py-2 text-sm whitespace-nowrap"
-              >
+              <button type="button" onClick={toggleLang} className="btn btn-primary px-3 py-2 text-sm whitespace-nowrap">
                 {t.lang_toggle}
               </button>
             </div>
@@ -298,6 +290,15 @@ export default function Page() {
         </h1>
 
         <p className="mt-4 max-w-2xl mx-auto text-zinc-300">{t.hero_sub}</p>
+
+        <ul className="mt-4 max-w-xl mx-auto text-zinc-300 space-y-2 text-sm">
+          {t.hero_points.map((x) => (
+            <li key={x} className="flex gap-2 justify-center">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-400" />
+              <span>{x}</span>
+            </li>
+          ))}
+        </ul>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href={CALENDLY_URL} className="btn btn-primary whitespace-nowrap" target="_blank" rel="noopener">
@@ -365,7 +366,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold sm:text-3xl">{t.solution_title}</h2>
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {/* Custom AI Examples */}
+          {/* What we’ll build first */}
           <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
             <h3 className="text-lg font-semibold">{t.custom_examples_title}</h3>
             <ul className="mt-3 space-y-2 text-zinc-300">
@@ -394,6 +395,29 @@ export default function Page() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CONSULTING & IMPLEMENTATION */}
+      <section className="container mx-auto max-w-6xl px-4 pt-14 md:pt-20">
+        <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+          <h2 className="text-2xl font-bold sm:text-3xl">{t.consulting_title}</h2>
+          <p className="mt-2 text-zinc-300">{t.consulting_body}</p>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {t.consulting_points.map((x) => (
+              <div key={x} className="flex gap-2 text-zinc-300">
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-400" />
+                <span>{x}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5">
+            <a href={CALENDLY_URL} className="btn btn-primary whitespace-nowrap" target="_blank" rel="noopener">
+              {t.consulting_cta}
+            </a>
           </div>
         </div>
       </section>
@@ -443,10 +467,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold sm:text-3xl">{t.faq_title}</h2>
         <div className="mt-4 space-y-4">
           {t.faqs.map((item) => (
-            <div
-              key={item.q}
-              className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10"
-            >
+            <div key={item.q} className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
               <div className="font-semibold">{item.q}</div>
               <p className="mt-2 text-zinc-300">{item.a}</p>
             </div>
