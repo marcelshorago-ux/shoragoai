@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { useState } from "react";
 import { CALENDLY_URL } from "../lib/calendly";
 
@@ -10,7 +9,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0b0b0f] to-[#111118] text-white flex flex-col items-center">
-      {/* Language Toggle */}
       <div className="w-full max-w-6xl flex justify-end px-6 pt-5">
         <button
           onClick={() => setLang(lang === "en" ? "es" : "en")}
@@ -21,7 +19,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Hero */}
       <section className="max-w-4xl text-center pt-10 px-6">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
           {t("The AI Operating System for Small Business", "El Sistema Operativo de IA para Pequeñas Empresas")}
@@ -33,16 +30,16 @@ export default function Home() {
           )}
         </p>
 
-        <Link
+        <a
           href={CALENDLY_URL}
           target="_blank"
+          rel="noopener noreferrer"
           className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 md:px-8 py-3 md:py-4 rounded-2xl shadow-md transition"
         >
           {t("Book a Strategy Call", "Agenda una Consulta Estratégica")}
-        </Link>
+        </a>
       </section>
 
-      {/* Philosophy */}
       <section className="max-w-5xl text-left mt-16 md:mt-20 px-6">
         <h2 className="text-2xl md:text-3xl font-semibold mb-4">
           {t("From Automations to Operating Systems", "De Automatizaciones a Sistemas Operativos")}
@@ -60,7 +57,6 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Difference */}
       <section className="max-w-5xl text-left mt-14 md:mt-20 px-6">
         <h2 className="text-2xl md:text-3xl font-semibold mb-4">
           {t("AI That Trains, Decides, and Executes", "IA que Entrena, Decide y Ejecuta")}
@@ -78,18 +74,18 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Final CTA */}
       <section className="text-center mt-16 md:mt-20 mb-20 px-6">
         <h3 className="text-xl md:text-2xl font-semibold mb-4">
           {t("We’re not just automating your business — we’re teaching it how to think.", "No solo automatizamos tu negocio — le enseñamos a pensar.")}
         </h3>
-        <Link
+        <a
           href={CALENDLY_URL}
           target="_blank"
+          rel="noopener noreferrer"
           className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 md:px-8 py-3 md:py-4 rounded-2xl shadow-md transition"
         >
           {t("Book Your Strategy Call", "Agenda tu Consulta Estratégica")}
-        </Link>
+        </a>
       </section>
     </main>
   );
