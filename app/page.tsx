@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0b0b0f] text-white">
       {/* Header */}
-      <header className="mx-auto w-full max-w-6xl px-4 pt-6 pb-4 flex items-center justify-between">
+      <header className="mx-auto w-full max-w-6xl px-4 pt-8 pb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Image priority src="/brand/shoragoai-logo.png" alt="Shorago AI logo" width={480} height={160} sizes="(min-width:1280px) 300px, (min-width:768px) 240px, 180px" className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32" />
+          <Image priority src="/brand/shoragoai-logo.png" alt="Shorago AI logo" width={640} height={320} sizes="(min-width:1280px) 400px, (min-width:768px) 320px, 220px" className="w-auto h-20 sm:h-24 md:h-32 lg:h-36 xl:h-40" />
         </div>
         <div className="flex items-center gap-2">
           <a
