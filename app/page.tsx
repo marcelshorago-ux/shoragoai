@@ -13,7 +13,7 @@ export default function Home() {
       {/* Header */}
       <header className="mx-auto w-full max-w-6xl px-4 pt-6 pb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Image priority src="/brand/shoragoai-logo.png" alt="Shorago AI" width={320} height={96} sizes="(min-width:1024px) 240px, (min-width:640px) 200px, 160px" className="w-auto h-12 sm:h-14 md:h-16 lg:h-18 xl:h-20" />
+          <Image priority src="/brand/shoragoai-logo.png" alt="Shorago AI logo" width={480} height={160} sizes="(min-width:1280px) 300px, (min-width:768px) 240px, 180px" className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32" />
         </div>
         <div className="flex items-center gap-2">
           <a
