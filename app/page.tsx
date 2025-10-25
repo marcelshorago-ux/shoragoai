@@ -65,7 +65,7 @@ export default function Home() {
             Start Your Workflow Audit
           </a>
           <a
-            href="/waitlist"
+            href="mailto:marcel@shoragoai.com?subject=Shorago%20AI%20Waitlist"
             className="inline-block rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-center font-semibold hover:bg-white/10 transition"
           >
             Join the Waitlist
@@ -185,7 +185,7 @@ export default function Home() {
               Book Your AI Consultation
             </a>
             <a
-              href="/waitlist"
+              href="mailto:marcel@shoragoai.com?subject=Shorago%20AI%20Waitlist"
               className="inline-block rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-center font-semibold hover:bg-white/10 transition"
             >
               Join the Waitlist
