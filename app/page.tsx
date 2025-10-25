@@ -14,7 +14,7 @@ export default function Home() {
       <header className="mx-auto w-full max-w-6xl px-4 pt-6 pb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Image src="/logo-mark.svg" alt="Shorago AI" width={34} height={34} />
-          <span className="text-lg font-semibold opacity-90">Shorago AI</span>
+          <span className="text-lg font-semibold opacity-90 whitespace-nowrap">Shorago AI</span>
         </div>
         <div className="flex items-center gap-2">
           <a
