@@ -1,6 +1,4 @@
-'use client';
-
-export const revalidate = 0; // disable static caching
+export const revalidate = 0; // or: export const dynamic = 'force-dynamic'
 
 import Image from "next/image";
 
