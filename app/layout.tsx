@@ -3,6 +3,10 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+export const viewport = {
+  themeColor: "#0b0b0f"
+};    
+
 export const metadata = {
   title: "Shorago AI",
   description: "Turn data chaos into intelligence-led operations.",
