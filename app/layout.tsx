@@ -7,7 +7,6 @@ export const metadata = {
   title: "Shorago AI",
   description: "Turn data chaos into intelligence-led operations.",
   manifest: "/manifest.webmanifest",
-  themeColor: "#0b0b0f",
   icons: {
     icon: [
       { url: "/favicon.ico" },
