@@ -1,4 +1,4 @@
-export const revalidate = 0; // or: export const dynamic = 'force-dynamic'
+export const revalidate = 0;
 
 import Image from "next/image";
 
@@ -7,243 +7,309 @@ const CALENDLY_URL =
 
 const BUILD_TIME = process.env.NEXT_PUBLIC_BUILD_TIME ?? "";
 
+const verticals = [
+  {
+    icon: "⚖️",
+    industry: "Law Firms",
+    description:
+      "Intake automation, deadline management, AI-drafted pleadings, and client engagement messaging — all connected to your existing case management system.",
+    tags: ["My Case", "Filevine", "Bilingual EN/ES"],
+  },
+  {
+    icon: "🚛",
+    industry: "Trucking & Logistics",
+    description:
+      "Dispatch operations systems, driver assignment engines, SMS notifications, payout tracking, and performance dashboards built around your load boards.",
+    tags: ["Amazon Relay", "Load Boards", "Driver SMS"],
+  },
+  {
+    icon: "🎯",
+    industry: "Coaching & Personal Brands",
+    description:
+      "Full CRM buildouts, client onboarding sequences, lead follow-up automation, and engagement systems that run 24/7 so you can focus on your craft.",
+    tags: ["CRM", "Client Onboarding", "Lead Automation"],
+  },
+  {
+    icon: "🏠",
+    industry: "Real Estate",
+    description:
+      "Lead capture and follow-up workflows, transaction coordination automation, client communication sequences, and deal tracking infrastructure.",
+    tags: ["Lead Follow-Up", "Transaction Mgmt", "Client Comms"],
+  },
+];
+
+const beforeAfter = [
+  {
+    before: "Leads fall through the cracks between apps and messages.",
+    after: "Every lead is captured, followed up, and converted automatically.",
+  },
+  {
+    before: "Coordination happens across texts, calls, and spreadsheets.",
+    after: "One system handles assignment, tracking, and notifications.",
+  },
+  {
+    before: "Admin work grows every time you add a client or driver.",
+    after: "The system scales with you — no extra overhead.",
+  },
+];
+
+const stats = [
+  { value: "8 weeks", label: "from kickoff to full system live" },
+  { value: "24/7", label: "your system works while you don't" },
+  { value: "<$4/hr", label: "effective cost of the monthly retainer" },
+];
+
+const faqs = [
+  {
+    q: "Do you replace the tools we already use?",
+    a: "No. We build around your existing platforms — My Case, Filevine, Amazon Relay, Dropbox, and others. The system connects everything into one operational hub.",
+  },
+  {
+    q: "How long does a build take?",
+    a: "Most systems go from kickoff to fully live in 6–8 weeks. You'll see working workflows before the build is complete.",
+  },
+  {
+    q: "What's included in the monthly retainer?",
+    a: "System support and maintenance. Any additional workflows or features outside the original scope are scoped and billed separately.",
+  },
+  {
+    q: "Do you work in Spanish?",
+    a: "Yes. We're bilingual by default. Proposals, systems, and client-facing messaging can all be built in English, Spanish, or both.",
+  },
+];
+
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0b0b0f] text-white">
-      {/* Header */}
+
+      {/* ── Header ── */}
       <header className="mx-auto w-full max-w-6xl px-4 pt-8 pb-6 flex items-center justify-between">
+        <Image
+          priority
+          src="/brand/shoragoai-logo.png"
+          alt="Shorago AI"
+          width={640}
+          height={320}
+          sizes="(min-width:1280px) 400px, (min-width:768px) 320px, 220px"
+          className="w-auto h-20 sm:h-24 md:h-32 lg:h-36 xl:h-40"
+        />
         <div className="flex items-center gap-3">
-          <Image priority src="/brand/shoragoai-logo.png" alt="Shorago AI logo" width={640} height={320} sizes="(min-width:1280px) 400px, (min-width:768px) 320px, 220px" className="w-auto h-20 sm:h-24 md:h-32 lg:h-36 xl:h-40" />
-        </div>
-        <div className="flex items-center gap-2">
+          <span className="hidden sm:inline text-sm text-white/50">Miami · South Florida</span>
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl bg-purple-600 px-4 py-2 text-sm font-semibold hover:bg-purple-700 transition"
+            className="rounded-2xl bg-[#C8A96E] text-black px-5 py-2.5 text-sm font-bold hover:bg-[#E2C899] transition"
           >
-            Book Your AI Consultation
+            Get Your Custom Proposal
           </a>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="mx-auto w-full max-w-4xl px-4">
-        <div className="mx-auto mb-4 inline-block rounded-full bg-white/5 px-4 py-1 text-sm text-white/70">
-          AI Workflow Consulting • EN/ES
+      {/* ── Hero ── */}
+      <section className="mx-auto w-full max-w-4xl px-4 pt-6 pb-4 text-center">
+        <div className="mx-auto mb-6 inline-block rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-sm text-white/60">
+          Custom AI Systems · Law · Trucking · Coaching · Real Estate · EN/ES
         </div>
         <h1 className="text-4xl leading-tight font-extrabold md:text-6xl md:leading-[1.05] tracking-tight">
-          We turn your everyday workflows into AI-powered systems.
+          We build the operational system<br className="hidden md:block" /> your business runs on.
         </h1>
-        <p className="mt-4 text-lg text-white/80 md:text-xl">
-          From discovery to build and rollout — we guide non-technical teams to real results.
+        <p className="mt-5 text-lg text-white/70 md:text-xl max-w-2xl mx-auto">
+          Custom-built AI infrastructure that automates your intake, follow-up, dispatch, and client communication — so you can scale without adding overhead.
         </p>
-
-        <ul className="mt-6 space-y-3 text-white/90">
-          <li className="flex gap-3">
-            <span className="mt-[10px] inline-block h-2 w-2 rounded-full bg-purple-400" />
-            <span>We map your processes and find quick wins.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-[10px] inline-block h-2 w-2 rounded-full bg-purple-400" />
-            <span>We implement practical AI tools into your daily operations.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-[10px] inline-block h-2 w-2 rounded-full bg-purple-400" />
-            <span>We train your team and measure impact.</span>
-          </li>
-        </ul>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-2xl bg-purple-600 px-6 py-4 text-center font-semibold hover:bg-purple-700 transition"
+            className="inline-block rounded-2xl bg-[#C8A96E] text-black px-7 py-4 text-center font-bold hover:bg-[#E2C899] transition"
           >
-            Start Your Workflow Audit
+            Get Your Custom Proposal
           </a>
           <a
-            href="mailto:marcel@shoragoai.com?subject=Shorago%20AI%20Waitlist"
-            className="inline-block rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-center font-semibold hover:bg-white/10 transition"
+            href="#how-it-works"
+            className="inline-block rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-center font-semibold hover:bg-white/10 transition"
           >
-            Join the Waitlist
+            See How It Works
           </a>
         </div>
       </section>
 
-      {/* Before vs After */}
-      <section className="mx-auto mt-10 w-full max-w-5xl px-4">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
-          <h2 className="text-xl font-semibold mb-4">Before vs After</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div>
-              <div className="text-xs uppercase tracking-wider text-white/60 mb-2">Before</div>
-              <ul className="space-y-3 text-white/90">
-                <li>Unclear where to start with AI.</li>
-                <li>Manual reports, late decisions.</li>
-                <li>Tasks slip through the cracks.</li>
-              </ul>
+      {/* ── Stats ── */}
+      <section className="mx-auto mt-12 w-full max-w-5xl px-4">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 grid gap-6 md:grid-cols-3 text-center">
+          {stats.map((s) => (
+            <div key={s.value}>
+              <div className="text-3xl font-extrabold text-[#C8A96E]">{s.value}</div>
+              <div className="text-white/60 text-sm mt-1">{s.label}</div>
             </div>
-            <div>
-              <div className="text-xs uppercase tracking-wider text-white/60 mb-2">After</div>
-              <ul className="space-y-3 text-white/90">
-                <li>Clear AI roadmap, prioritized by ROI.</li>
-                <li>Live KPIs with owners and due dates.</li>
-                <li>Automated nudges and proof of completion.</li>
-              </ul>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* AI Operating System Loop */}
-      <section className="mx-auto mt-10 w-full max-w-5xl px-4">
-        <h2 className="text-2xl md:text-3xl font-bold">The AI Operating System Loop</h2>
-        <p className="mt-2 text-white/80">
-          We don’t just automate. We train, decide, and execute — all in one loop.
-        </p>
+      {/* ── Verticals ── */}
+      <section className="mx-auto mt-14 w-full max-w-5xl px-4">
+        <h2 className="text-2xl md:text-3xl font-bold">Built for your industry.</h2>
+        <p className="mt-2 text-white/60">Every system is custom-built around how your business actually operates — not a generic template.</p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {verticals.map((v) => (
+            <div key={v.industry} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">{v.icon}</span>
+                <span className="text-lg font-bold">{v.industry}</span>
+              </div>
+              <p className="text-white/70 text-sm leading-relaxed">{v.description}</p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                {v.tags.map((tag) => (
+                  <span key={tag} className="rounded-full border border-[#C8A96E]/30 bg-[#C8A96E]/10 text-[#C8A96E] text-xs px-3 py-1">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── How it works ── */}
+      <section id="how-it-works" className="mx-auto mt-14 w-full max-w-5xl px-4">
+        <h2 className="text-2xl md:text-3xl font-bold">How it works.</h2>
+        <p className="mt-2 text-white/60">Simple process. Real system. Running in 8 weeks.</p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
-            { t: "Train", d: "Shorago AI Academy (EN/ES) + role-based playbooks train your team as we ship." },
-            { t: "Decide", d: "Benchmarks & alerts highlight what matters: drift, delays, missed KPIs." },
-            { t: "Execute", d: "WhatsApp/Email automations chase owners, collect proof, and close loops." },
-          ].map((b) => (
-            <div key={b.t} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <div className="text-lg font-semibold">{b.t}</div>
-              <p className="mt-2 text-white/80">{b.d}</p>
+            { step: "01", title: "Discovery & Proposal", body: "We learn how your business operates today, identify the highest-impact workflows, and deliver a custom proposal scoped to your exact needs." },
+            { step: "02", title: "Build & Deploy", body: "We build your system in 6–8 weeks — connecting to your existing tools, configuring your workflows, and testing everything before handoff." },
+            { step: "03", title: "Support & Maintenance", body: "Monthly retainer covers ongoing system support and maintenance. Additional workflows outside the original scope are available as add-ons." },
+          ].map((s) => (
+            <div key={s.step} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="text-[#C8A96E] font-bold text-sm mb-2">{s.step}</div>
+              <div className="text-lg font-bold mb-2">{s.title}</div>
+              <p className="text-white/70 text-sm leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Benchmarks / KPI strip */}
-      <section className="mx-auto mt-10 w-full max-w-5xl px-4">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 grid gap-4 md:grid-cols-3 text-center">
-          <div>
-            <div className="text-3xl font-extrabold">30–50%</div>
-            <div className="text-white/70 text-sm">productivity lift per employee</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold">2–4 weeks</div>
-            <div className="text-white/70 text-sm">to first automation shipped</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold">24/7</div>
-            <div className="text-white/70 text-sm">live KPIs & audit trails</div>
-          </div>
+      {/* ── Before / After ── */}
+      <section className="mx-auto mt-14 w-full max-w-5xl px-4">
+        <h2 className="text-2xl md:text-3xl font-bold">Before vs. After.</h2>
+        <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 space-y-5">
+          {beforeAfter.map((row, i) => (
+            <div key={i} className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-xl bg-white/5 border border-white/10 p-4 text-white/60 text-sm">
+                <span className="text-xs uppercase tracking-wider text-white/30 block mb-1">Before</span>
+                {row.before}
+              </div>
+              <div className="rounded-xl bg-[#C8A96E]/10 border border-[#C8A96E]/20 p-4 text-white/90 text-sm">
+                <span className="text-xs uppercase tracking-wider text-[#C8A96E] block mb-1">After</span>
+                {row.after}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Reasoning Agents */}
-      <section className="mx-auto mt-10 w-full max-w-5xl px-4">
-        <h2 className="text-2xl md:text-3xl font-bold">Reasoning agents that learn your business</h2>
-        <p className="mt-2 text-white/80">
-          We capture checklists, SOPs, and message patterns to create light domain agents
-          (“Coach AI”, “Vendor AI”) that replicate your best people’s reasoning.
+      {/* ── Investment ── */}
+      <section className="mx-auto mt-14 w-full max-w-5xl px-4">
+        <h2 className="text-2xl md:text-3xl font-bold">Investment.</h2>
+        <p className="mt-2 text-white/60">
+          Founding partner pricing — available for the first 10 clients only. Once those spots are filled, the standard rate applies.
         </p>
-        <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
-          <ul className="space-y-3 text-white/90">
-            <li>Onboarding playbooks converted to structured knowledge.</li>
-            <li>Agents propose actions; automations execute with approvals.</li>
-            <li>Monthly performance snapshots build your proprietary KPI index.</li>
-          </ul>
-          <div className="mt-5">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block rounded-2xl bg-purple-600 px-5 py-3 font-semibold hover:bg-purple-700 transition"
-            >
-              See the AI OS plan for your team
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="mx-auto mt-10 w-full max-w-5xl px-4">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-bold">Simple Starter Plan (Founders Offer)</h2>
-          <p className="mt-2 text-white/80">
-            Stage 1 → <span className="font-semibold">$499/month (12-month)</span>. Includes AI Workflow Audit + first
-            automation implementation + support.
-          </p>
-          <ul className="mt-5 grid gap-3 md:grid-cols-3 text-white/90">
-            <li>Audit + roadmap + quick wins</li>
-            <li>First automation included</li>
-            <li>Bilingual onboarding + support</li>
-          </ul>
-          <div className="mt-6 flex flex-col sm:flex-row gap-4">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block rounded-2xl bg-purple-600 px-6 py-4 text-center font-semibold hover:bg-purple-700 transition"
-            >
-              Book Your AI Consultation
-            </a>
-            <a
-              href="mailto:marcel@shoragoai.com?subject=Shorago%20AI%20Waitlist"
-              className="inline-block rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-center font-semibold hover:bg-white/10 transition"
-            >
-              Join the Waitlist
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="mx-auto my-12 w-full max-w-5xl px-4">
-        <h2 className="text-2xl md:text-3xl font-bold">FAQ</h2>
-        <div className="mt-6 grid gap-4">
-          {[
-            {
-              q: "We’re new to AI — is this for us?",
-              a: "Yes. We specialize in guiding non-technical teams from zero to working automations with training and support."
-            },
-            {
-              q: "How fast can we launch?",
-              a: "Typical pilot is 2–4 weeks: connect data, define KPIs, ship the first automation, and train your team."
-            },
-            {
-              q: "Who owns the data and tools?",
-              a: "You do. We connect to your systems, and everything is exportable. We’ll document the setup for your team."
-            },
-            {
-              q: "What if our processes are messy?",
-              a: "That’s exactly when consulting helps. We map your workflows, simplify where needed, and implement practical tools."
-            }
-          ].map((item) => (
-            <div key={item.q} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <div className="font-semibold">{item.q}</div>
-              <p className="mt-2 text-white/80">{item.a}</p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-[#C8A96E]/30 bg-[#C8A96E]/5 p-6">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-[#C8A96E] font-bold text-sm uppercase tracking-wider">Build Fee</div>
+              <div className="rounded-full bg-[#C8A96E]/20 border border-[#C8A96E]/40 text-[#C8A96E] text-xs font-bold px-3 py-1">
+                First 10 clients only
+              </div>
             </div>
-          ))}
+            <div className="text-4xl font-extrabold">$3,000</div>
+            <div className="text-white/50 text-sm mt-1">one-time · founding partner rate</div>
+            <div className="mt-1 flex items-center gap-2">
+              <span className="text-white/30 text-xs line-through">Standard rate: $7,500</span>
+              <span className="text-[#C8A96E] text-xs font-semibold">Save $4,500</span>
+            </div>
+            <ul className="mt-4 space-y-2 text-sm text-white/70">
+              <li>✓ Custom system built to your workflow</li>
+              <li>✓ Integrations with your existing tools</li>
+              <li>✓ 6–8 week build &amp; deployment</li>
+              <li>✓ Full handoff + documentation</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="text-white/50 font-bold text-sm uppercase tracking-wider mb-2">Monthly Retainer</div>
+            <div className="text-4xl font-extrabold">Depends on scope</div>
+            <div className="text-white/50 text-sm mt-1">system support &amp; maintenance</div>
+            <div className="text-white/30 text-xs mt-1">Runs 720 hrs/month · less than $4/hr</div>
+            <ul className="mt-4 space-y-2 text-sm text-white/70">
+              <li>✓ System monitoring &amp; maintenance</li>
+              <li>✓ Bug fixes &amp; uptime support</li>
+              <li>✓ Priority response</li>
+              <li>✓ Additional workflows billed separately</li>
+            </ul>
+            <p className="mt-4 text-white/40 text-xs">
+              Retainer is scoped per project. Included in your custom proposal.
+            </p>
+          </div>
         </div>
-
-        <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
-          <h3 className="text-xl md:text-2xl font-bold">
-            Ready to move from “we should use AI” to “AI runs our workflows every day”?
-          </h3>
+        <div className="mt-6 text-center">
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block rounded-2xl bg-purple-600 px-6 py-4 font-semibold hover:bg-purple-700 transition"
+            className="inline-block rounded-2xl bg-[#C8A96E] text-black px-8 py-4 font-bold hover:bg-[#E2C899] transition"
           >
-            Start Your Workflow Audit
+            Get Your Custom Proposal
           </a>
+          <p className="mt-3 text-white/30 text-xs">
+            Founding partner rate locks in at $3,000 for the first 10 clients. This will not be available after those spots are filled.
+          </p>
         </div>
       </section>
 
-      {/* Footer with build stamp */}
-      <footer className="mx-auto mb-10 w-full max-w-6xl px-4 text-center text-white/60">
-        © {new Date().getFullYear()} Shorago AI • Built for SMBs
-        <div className="mt-2 text-xs opacity-70">
+      {/* ── FAQ ── */}
+      <section className="mx-auto mt-14 w-full max-w-5xl px-4">
+        <h2 className="text-2xl md:text-3xl font-bold">FAQ</h2>
+        <div className="mt-6 grid gap-4">
+          {faqs.map((item) => (
+            <div key={item.q} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="font-semibold">{item.q}</div>
+              <p className="mt-2 text-white/70 text-sm">{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Closing CTA ── */}
+      <section className="mx-auto mt-14 mb-16 w-full max-w-5xl px-4">
+        <div className="rounded-3xl border border-[#C8A96E]/20 bg-[#C8A96E]/5 p-8 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold">
+            Ready to run your business on a system that works 24/7?
+          </h3>
+          <p className="mt-3 text-white/60 max-w-xl mx-auto">
+            Tell us how your business operates and we&apos;ll send you a custom proposal — specific to your industry, your tools, and your workflow.
+          </p>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block rounded-2xl bg-[#C8A96E] text-black px-8 py-4 font-bold hover:bg-[#E2C899] transition"
+          >
+            Get Your Custom Proposal
+          </a>
+          <div className="mt-4 text-white/30 text-sm">Miami · South Florida · Bilingual EN/ES</div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="mx-auto mb-10 w-full max-w-6xl px-4 text-center text-white/30 text-sm">
+        © {new Date().getFullYear()} Shorago AI · Custom AI Systems for Service Businesses · shorago.ai
+        <div className="mt-2 text-xs opacity-50">
           Build: {BUILD_TIME ? new Date(BUILD_TIME).toLocaleString() : "n/a"}
         </div>
       </footer>
+
     </main>
   );
 }
